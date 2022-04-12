@@ -213,6 +213,7 @@ textarea:focus {
   right: -18em;
   transform: translateX(0);
   transition: 0.3s;
+  z-index: 2;
 }
 .toggle-nav.view {
   right: 0;
@@ -224,13 +225,18 @@ textarea:focus {
   top: 5px;
   right: 5px;
 }
-.toggle-nav ul li a {
-  color: #333;
-  font-weight: bold;
-}
+
 .toggle-nav ul {
   padding: 1em 2em;
   font-size: 0.9em;
+}
+.toggle-nav ul li {
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+.toggle-nav ul li:hover {
+  color: aqua;
 }
 .toggle-nav .mobile-nav {
   padding-top: 4em;
@@ -243,13 +249,21 @@ textarea:focus {
   border-bottom: none;
 }
 @media screen and (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
   .toggle {
     display: flex;
     opacity: 1;
+    position: fixed;
   }
   .toggle.scroll {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 15px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  .toggle.scroll a {
     color: #333;
   }
 }
